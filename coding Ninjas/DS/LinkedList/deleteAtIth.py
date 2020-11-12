@@ -34,18 +34,17 @@ def printLinkedList(head) :
 
     print()
 
-def insertAtIth(head,data,target):
-    newNode = Node(data)
+def deleteAtIth(head,target):
     if(target == 0):
-        newNode.next = head
-        return newNode
+        return head.next
+    temp1 = head
     for i in range(target-1):
-        if(head == None):
+        if(temp1 == None):
             break
-        head = head.next
-    if(head != None):
-        newNode.next = head.next
-        head.next = newNode
+        temp1 = temp1.next
+    if(temp1 != None):
+        temp = temp1.next.next
+        temp1.next = temp
     return head 
     
 
@@ -55,7 +54,7 @@ head = takeInput()
 print(">>>>>>>>>>")
 printLinkedList(head)
 print(">>>>>>>>>>")
-head = insertAtIth(head,25,0)
+head = deleteAtIth(head,3)
 print(">>>>>>>>>>")
 printLinkedList(head)
 
