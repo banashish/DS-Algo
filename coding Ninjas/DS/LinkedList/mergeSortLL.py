@@ -65,7 +65,10 @@ def mergeSort(head) :
     head2 = mid.next
     mid.next = None
 
-    return mergeTwoSortedLinkedLists(head1,head2)
+    left = mergeSort(head1)
+    right = mergeSort(head2)
+
+    return mergeTwoSortedLinkedLists(left,right)
 
 
 
