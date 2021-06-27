@@ -5,18 +5,18 @@
 #         self.next = next
 class Solution:
     def deleteDuplicates(self, head: ListNode) -> ListNode:
-        temp = ListNode(0,head)
+        temp = ListNode(0, head)
         prev = temp
-        
+
         while head is not None:
             if head.next is not None and head.val == head.next.val:
                 while head.next is not None and head.val == head.next.val:
                     head = head.next
                 prev.next = head.next
-                
+
                 head = head.next
-            else:  
+            else:
                 prev = prev.next
                 head = head.next
-                
+
         return temp.next
